@@ -1,0 +1,376 @@
+/* Custom Styles for 91CLUB Multi-Game Platform */
+
+:root {
+    --primary-color: #3B82F6;
+    --secondary-color: #6366F1;
+    --success-color: #10B981;
+    --danger-color: #EF4444;
+    --warning-color: #F59E0B;
+    --info-color: #06B6D4;
+    --purple-color: #8B5CF6;
+    --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navigation */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Countdown Circle */
+.countdown-circle {
+    width: 80px;
+    height: 80px;
+    border: 4px solid var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #f0f9ff, #e0f2fe);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    margin: 0 auto;
+}
+
+/* Betting Buttons */
+.bet-button {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.bet-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.bet-button:active {
+    transform: translateY(0);
+}
+
+/* Amount Selection */
+.bet-amount {
+    border-radius: 25px;
+    padding: 8px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.bet-amount.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.bet-amount:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Custom Purple Button */
+.btn-purple {
+    background: linear-gradient(135deg, #8B5CF6, #A855F7);
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-purple:hover {
+    background: linear-gradient(135deg, #7C3AED, #9333EA);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover Cards for Game Hub */
+.hover-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Recent Results */
+.result-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    border-left: 4px solid transparent;
+}
+
+.result-item.red {
+    border-left-color: var(--danger-color);
+}
+
+.result-item.green {
+    border-left-color: var(--success-color);
+}
+
+.result-item.violet {
+    border-left-color: var(--purple-color);
+}
+
+/* Color Indicators */
+.color-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.color-red {
+    background-color: var(--danger-color);
+}
+
+.color-green {
+    background-color: var(--success-color);
+}
+
+.color-violet {
+    background-color: var(--purple-color);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bet-button {
+        font-size: 0.875rem;
+        padding: 12px 8px;
+    }
+    
+    .countdown-circle {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+}
+
+/* Success/Error States */
+.bet-success {
+    border: 2px solid var(--success-color);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.bet-error {
+    border: 2px solid var(--danger-color);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Glass Effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Notification Badge */
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--danger-color);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+}
+
+/* Balance Display */
+.balance-display {
+    background: linear-gradient(135deg, var(--success-color), #059669);
+    padding: 15px;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Game Status Indicators */
+.status-active {
+    color: var(--success-color);
+}
+
+.status-pending {
+    color: var(--warning-color);
+}
+
+.status-completed {
+    color: var(--info-color);
+}
+
+.status-cancelled {
+    color: var(--danger-color);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Utility Classes */
+.text-3xl {
+    font-size: 1.875rem;
+}
+
+.text-4xl {
+    font-size: 2.25rem;
+}
+
+.text-5xl {
+    font-size: 3rem;
+}
+
+.bg-gradient-primary {
+    background: var(--gradient-bg);
+}
+
+/* Button Variants */
+.btn-outline-purple {
+    color: var(--purple-color);
+    border-color: var(--purple-color);
+}
+
+.btn-outline-purple:hover {
+    background-color: var(--purple-color);
+    color: white;
+}
+
+/* Table Styles */
+.table-modern {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.table-modern th {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px;
+}
+
+.table-modern td {
+    padding: 12px 15px;
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Form Styles */
+.form-modern {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    border-bottom: 1px solid #e9ecef;
+    border-radius: 15px 15px 0 0;
+}
+
+/* Footer */
+.footer-modern {
+    background: linear-gradient(135deg, #1f2937, #374151);
+    color: white;
+    padding: 40px 0;
+    margin-top: 50px;
+}
